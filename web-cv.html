@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ernest Kalynych</title>
+    <link rel="stylesheet" href="web-cv.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+      integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="text/javascript">
+      var phoneWidth = window.matchMedia("(max-width: 600px)");
+      changePaddingClass(phoneWidth);
+      phoneWidth.addListener(changePaddingClass);
+
+      var text =
+        "My name is Ernest Kalynych. I was born in a beautiful country named Ukraine. (There will be a flag soon..) .In 2017, I went to Slovakia to study. In 2021, I successfully graduated as a bachelor. Also during my studies (in 2019), I started working in the IT sector as a software engineer. And for last 4 years i make the same thing - programming. I really love it!";
+      function startWriting() {
+        changePaddingClass(phoneWidth);
+        var i = 0;
+        textLoop(i);
+      }
+
+      function textLoop(i) {
+        setTimeout(function () {
+          $(".text-about-me").append(text.charAt(i).toString());
+          i++;
+          if (i < text.length) {
+            textLoop(i);
+          }
+        }, 25);
+      }
+
+      $(document).on("click", "#scroll-contact", function (event) {
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+
+      $(document).on("click", ".openInfo", function (event) {
+        if ($(this).attr("button-state") == "open") {
+          $(this).attr("button-state", "close");
+          $(this)
+            .find(".bi")
+            .removeClass("bi-chevron-compact-down")
+            .addClass("bi-chevron-compact-up");
+          $(this)
+            .parent()
+            .find(".workInfo")
+            .removeClass("d-none")
+            .addClass("d-block");
+        } else {
+          $(this).attr("button-state", "open");
+          $(this)
+            .parent()
+            .find(".workInfo")
+            .removeClass("d-block")
+            .addClass("d-none");
+          $(this)
+            .find(".bi")
+            .removeClass("bi-chevron-compact-up")
+            .addClass("bi-chevron-compact-down");
+        }
+      });
+
+      function changePaddingClass(x) {
+        if (x.matches) {
+          // If media query matches
+          $(".profile").removeClass("p-5").addClass("p-2");
+          $(".more").removeClass("px-5").addClass("px-2");
+        } else {
+          $(".profile").removeClass("p-2").addClass("p-5");
+          $(".more").removeClass("px-2").addClass("px-5");
+        }
+      }
+
+    </script>
+  </head>
+
+  <body onload="startWriting();" class="bg-secondary">
+    <div class="content px-3">
+      <div
+        class="d-flex flex-column flex-md-row align-items-center py-3 border-bottom"
+      >
+        <a
+          href="/"
+          class="h3 px-5 d-flex align-items-center text-dark text-decoration-none"
+        >
+          Ernest Kalynych
+        </a>
+        <nav class="d-inline-flex px-3 mt-2 mt-md-0 ms-md-auto">
+          <button id="scroll-contact" class="py-2 text-dark btn btn-link text-decoration-none"
+            ><i class="bi bi-hand-index-thumb"></i> Contact</button
+          >
+        </nav>
+      </div>
+      <div
+        class="profile info d-flex flex-column flex-md-row align-items-center p-5"
+      >
+        <div>
+          <div class="profile-photo rounded-circle mx-auto border-3 p-2">
+            <img
+              id="me"
+              src="me.jpeg"
+              class="rounded-circle mx-auto border"
+              alt="Its me!"
+            />
+          </div>
+        </div>
+        <div class="about-me p-3">
+          <article class="h2">Hi!</article>
+          <div class="text-about-me"></div>
+        </div>
+      </div>
+      <div class="more px-5 py-3">
+        <h3>My Career</h3>
+        <div class="row">
+          <div class="col-lg-5 py-2">
+            <div class="card">
+              <div class="card-header d-flex justify-content-between">
+                <div class="ms-2 c-details">
+                  <h6 class="mb-0">AllySoft S.R.O.</h6>
+                </div>
+              </div>
+              <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                  <h6 class="heading">Junior Software Engineer</h6>
+                </blockquote>
+                <div class="my-2">
+                  <p>In period from: 01.2020 - 08.2021</p>
+                </div>
+                <footer class="blockquote-footer">
+                  Developing Android applications and creating front-end
+                  side for intern web-applications, etc...
+                </footer>
+                <div class="workInfo d-none">
+                  <p>
+                    The main task is creating and updating the functionality of Android
+                    applications created via Cordova framework. Also work on
+                    front-end side of intern applications.
+                  </p>
+                  Technologies i use:
+                  <div class="my-2">
+                    <img
+                      class="techLogo"
+                      src="icons/cordova-logo.png"
+                      alt="Girl in a jacket"
+                    />
+                    <img
+                      class="techLogo"
+                      src="icons/git-logo.png"
+                      alt="Girl in a jacket"
+                    />
+                    <img
+                      class="techLogo"
+                      src="icons/html-logo.png"
+                      alt="Girl in a jacket"
+                    />
+                    <img
+                      class="techLogo"
+                      src="icons/jquery-logo.png"
+                      alt="Girl in a jacket"
+                    />
+                    <img
+                      class="techLogo"
+                      src="icons/bootstrap-logo.png"
+                      alt="Girl in a jacket"
+                    />
+                  </div>
+                </div>
+                <button class="btn w-100 openInfo" button-state="open">
+                  <i class="bi bi-chevron-compact-down"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5 py-2">
+            <div class="card">
+              <div class="card-header d-flex justify-content-between">
+                <div class="ms-2 c-details">
+                  <h6 class="mb-0">NESS Kosice S.R.O.</h6>
+                </div>
+              </div>
+              <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                  <h6 class="heading">Software Engineer</h6>
+                </blockquote>
+                <div class="my-2">
+                  <p>In period from: 09.2021 - ...</p>
+                </div>
+                <footer class="blockquote-footer">
+                  Creating features on the platform, developing microservices,
+                  support the whole system, etc...
+                </footer>
+                <div class="workInfo d-none">
+                  <p>
+                    Creating features on the ThingsBoard platform using Java, JS.
+                    Also, developing and updating microservices (.NET6) built
+                    on AWS Cloud, used services like Lambda, ECS, CloudWatch
+                    logs etc...
+                  </p>
+                  <p>Technologies i use:</p>
+                  <div class="my-2">
+                    <img
+                      class="techLogo"
+                      src="icons/thingsboard-logo.png"
+                      alt="Girl in a jacket"
+                    />
+                    <img
+                      class="techLogo"
+                      src="icons/java-logo.png"
+                      alt="Girl in a jacket"
+                    />
+                    <img
+                      class="techLogo"
+                      src="icons/dotnet-logo.png"
+                      alt="Girl in a jacket"
+                    />
+                    <img
+                      class="techLogo"
+                      src="icons/bash-logo.png"
+                      alt="Girl in a jacket"
+                    />
+                    <img
+                      class="techLogo"
+                      src="icons/aws-logo.png"
+                      alt="Girl in a jacket"
+                    />
+                    <img
+                      class="techLogo"
+                      src="icons/html-logo.png"
+                      alt="Girl in a jacket"
+                    />
+                    <img
+                      class="techLogo"
+                      src="icons/git-logo.png"
+                      alt="Girl in a jacket"
+                    />
+                  </div>
+                </div>
+                <button class="btn w-100 openInfo" button-state="open">
+                  <i class="bi bi-chevron-compact-down"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page px-5 more py-3">
+        <h3>My Certificates</h3>
+        <div class="row">
+          <!--ADD CLASSES HERE d-flex align-items-stretch-->
+          <div class="col-lg-4 mb-3 d-flex flex-column align-items-stretch">
+            <div class="mx-auto">
+              <img
+                src="icons/cisco_ccna.png"
+                class="mx-auto logo"
+                alt="cisco"
+              />
+            </div>
+            <div class="w-100 text-center"><p>CCNA 2 (2019)</p></div>
+          </div>
+
+          <div class="col-lg-4 mb-3 d-flex flex-column align-items-stretch">
+            <div class="mx-auto">
+              <img
+                src="icons/aws-certified-cloud-practitioner.png"
+                class="mx-auto logo"
+                alt="aws"
+              />
+            </div>
+            <div class="w-100 text-center">
+              <p>AWS Cloud Practitioner (2023)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page px-5 more py-3 border-bottom">
+        <h3 class="py-3">Projects i worked with</h3>
+        <a href="https://servicehub.sk/" class="text-decoration-none py-5">
+          <div class="col-lg-4 mb-3 d-flex flex-column align-items-stretch">
+            <div class="mx-auto">
+              <img
+                src="icons/service-hub.png"
+                class="mx-auto logo"
+                alt="service-hub"
+              />
+            </div>
+            <div class="w-100 text-center service-hub"><p>ServiceHub</p></div>
+          </div>
+        </a>
+      </div>
+      <div class="px-5 more py-3">
+        <h3>Contact Me! :)</h3>
+        <div class="d-flex flex-row">
+          <div class="mb-3 ms-1">
+            <a
+              href="https://www.linkedin.com/in/ernest-kalynych-2b7102186/"
+              class="text-decoration-none"
+              ><i class="bi bi-linkedin fa-lg contact"></i
+            ></a>
+          </div>
+          <div class="mb-3 px-4">
+            <a
+              href="mailto:ekalinich1@gmail.com"
+              class="text-decoration-none"
+              ><i class="bi bi-envelope-fill fa-lg contact"></i
+            ></a>
+          </div>
+          <div class="mb-3">
+            <a
+              href="tel:+421904565826"
+              class="text-decoration-none"
+              ><i class="bi bi-phone-fill fa-lg contact"></i
+            ></a>
+          </div>
+        </div>
+        <a href="Ernest-Kalynych-CV.pdf" download="ekalynych-cv">
+          <button type="button" class="text-decoration-none btn btn-link p-0 m-0">
+            <i class="bi bi-file-earmark-person cv"></i><small class="cv"> Download Profesia.sk generated CV</small>
+          </button>
+        </a>
+        <div class="b-0 m-0 w-100">
+          <small class="float-end copyright"> © This page designed and developed by me :D</small>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
