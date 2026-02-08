@@ -15,20 +15,23 @@ body {
 
 .content {
   background-color: rgba(255, 255, 255, 1);
-  margin-left: 15%;
-  margin-right: 15%;
+  margin:  0 15%;
+  padding: 0 4%;
+}
+.ellipsis {
+  max-width: 240px; /* or 100% */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .profile-photo {
   border: 1px solid #8d69e5;
+  margin: 15px;
 }
 
 .page {
-  width: 100%;
-}
-
-.techLogo {
-  height: 36px;
+ padding-top: 25px;
 }
 
 img#me {
@@ -36,10 +39,10 @@ img#me {
   height: 200px;
 }
 img.logo {
-  width: 200px;
+  width: 100px;
 }
-.logo-container{
-    height: 200px;
+.logo-container {
+  height: 100px;
 }
 i.contact {
   color: darkmagenta;
@@ -61,10 +64,52 @@ i.contact {
 i.cv {
   font-size: 20px;
 }
+.bubbleContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: flex-start;
+  width: 50%;
+}
 
-@media only screen and (max-width: 600px) {
+.flexContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+  .flexContainer div{
+ width: 164px;
+}
+.bubbleContainer div {
+  border: 1px dashed gray;
+  border-radius: 15px;
+  padding: 2px;
+  padding-left: 6px;
+  padding-right: 6px;
+  width: auto;
+  width: fit-content; /* shrink to content */
+}
+.skills {
+  display: flex;
+  flex-direction: row;
+}
+@media only screen and (max-width: 768px) {
   .content {
     margin-left: 15px;
     margin-right: 15px;
   }
+  .ellipsis {
+    max-width: 120px; /* or 100% */
+  }
+  .bubbleContainer {
+    width: 100%;
+  }
+  .skills {
+    display: flex;
+    flex-direction: column;
+  }
+  .flexContainer {
+   justify-content: center;
+}
+
 }

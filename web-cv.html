@@ -12,246 +12,234 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
     integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
   <script type="text/javascript">
-    var phoneWidth = window.matchMedia("(max-width: 600px)");
-    changePaddingClass(phoneWidth);
-    phoneWidth.addListener(changePaddingClass);
-
-    var text =
-      "My name is Ernest Kalynych, and I am excited to introduce myself to you. I hail from the beautiful country of Ukraine. In 2017, I have been traveled to Slovakia to start my study at Technical University of Kosice. Four years later, in 2021, I succesfully got bachelor's degree. In 2019, as a student, I got my first part-time job in the IT industry and from that moment I continue to improve my skills in this work.";
-    function startWriting() {
-      changePaddingClass(phoneWidth);
-      var i = 0;
-      textLoop(i);
-    }
-
-    function textLoop(i) {
-      setTimeout(function () {
-        $(".text-about-me").append(text.charAt(i).toString());
-        i++;
-        if (i < text.length) {
-          textLoop(i);
-        }
-      }, 25);
-    }
 
     $(document).on("click", "#scroll-contact", function (event) {
       window.scrollTo(0, document.body.scrollHeight);
     });
 
-    $(document).on("click", ".openInfo", function (event) {
-      if ($(this).attr("button-state") == "open") {
-        $(this).attr("button-state", "close");
-        $(this)
-          .find(".bi")
-          .removeClass("bi-chevron-compact-down")
-          .addClass("bi-chevron-compact-up");
-        $(this)
-          .parent()
-          .find(".workInfo")
-          .removeClass("d-none")
-          .addClass("d-block");
-      } else {
-        $(this).attr("button-state", "open");
-        $(this)
-          .parent()
-          .find(".workInfo")
-          .removeClass("d-block")
-          .addClass("d-none");
-        $(this)
-          .find(".bi")
-          .removeClass("bi-chevron-compact-up")
-          .addClass("bi-chevron-compact-down");
-      }
-    });
 
-    function changePaddingClass(x) {
-      if (x.matches) {
-        // If media query matches
-        $(".profile").removeClass("p-5").addClass("p-2");
-        $(".more").removeClass("px-5").addClass("px-2");
-      } else {
-        $(".profile").removeClass("p-2").addClass("p-5");
-        $(".more").removeClass("px-2").addClass("px-5");
-      }
-    }
 
   </script>
 </head>
 
-<body onload="startWriting();" class="bg-secondary">
-  <div class="content px-3">
+<body class="bg-secondary">
+  <div class="content">
     <div class="d-flex flex-column flex-md-row align-items-center py-3 border-bottom">
-      <a href="/" class="h3 px-5 d-flex align-items-center text-dark text-decoration-none">
+      <a href="/" class="h3 d-flex align-items-center text-dark text-decoration-none">
         Ernest Kalynych
       </a>
-      <nav class="d-inline-flex px-3 mt-2 mt-md-0 ms-md-auto">
+      <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
         <button id="scroll-contact" class="py-2 text-dark btn btn-link text-decoration-none"><i
             class="bi bi-hand-index-thumb"></i> Contact</button>
       </nav>
     </div>
-    <div class="profile info d-flex flex-column flex-md-row align-items-center p-5">
+    <div class="page profile info d-flex flex-column flex-md-row align-items-center">
       <div>
-        <div class="profile-photo rounded-circle mx-auto border-3 p-2">
+        <div class="profile-photo rounded-circle border-3 p-2">
           <img id="me" src="me.jpeg" class="rounded-circle mx-auto border" alt="Its me!" />
         </div>
       </div>
-      <div class="about-me p-3">
+      <div class="about-me">
         <article class="h2">Hi!</article>
-        <div class="text-about-me"></div>
+        <div class="text-about-me">My name is Ernest Kalynych, and I am excited to introduce myself to you. I was born
+          in
+          the beautiful country of Ukraine. I live in Slovakia for the last 8 years, and I completed my study at the
+          Faculty of Electrical Engineering and Informatics, with a
+          specialization in Informatics. I am proactive and responsible software engineer, always face work calmly
+          and focus on the quality of the results while continuously developing both technical
+          and soft skills. I am a strong team player who can also work independently if required.
+
+          Always open to new challenges.</div>
       </div>
     </div>
-    <div class="more px-5 py-3">
+    <div class="page ">
       <h3>My Career</h3>
-      <div class="row">
-        <div class="col-lg-5 py-2">
-          <div class="card">
-            <div class="card-header d-flex justify-content-between">
-              <div class="ms-2 c-details">
-                <h6 class="mb-0">AllySoft S.R.O.</h6>
-              </div>
-            </div>
-            <div class="card-body">
-              <blockquote class="blockquote mb-0">
-                <h6 class="heading">Junior Software Engineer</h6>
-              </blockquote>
-              <div class="my-2">
-                <p>In period from: 01.2020 - 08.2021</p>
-              </div>
-              <footer class="blockquote-footer">
-                Developing Android applications and creating front-end
-                side for intern web-applications, etc...
-              </footer>
-              <div class="workInfo d-none">
-                <p>
-                  The main work was creating and updating the functionality of Android
-                  applications created via Cordova framework. Also work on
-                  front-end side of intern applications.
-                </p>
-                Technologies i use:
-                <div class="my-2">
-                  <img class="techLogo" src="icons/cordova-logo.png" alt="Girl in a jacket" />
-                  <img class="techLogo" src="icons/git-logo.png" alt="Girl in a jacket" />
-                  <img class="techLogo" src="icons/html-logo.png" alt="Girl in a jacket" />
-                  <img class="techLogo" src="icons/jquery-logo.png" alt="Girl in a jacket" />
-                  <img class="techLogo" src="icons/bootstrap-logo.png" alt="Girl in a jacket" />
-                </div>
-              </div>
-              <button class="btn w-100 openInfo" button-state="open">
-                <i class="bi bi-chevron-compact-down"></i>
-              </button>
-            </div>
-          </div>
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <button class="nav-link" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
+            role="tab" aria-controls="nav-home" aria-selected="false">
+            <p class="mb-0 h6 ellipsis"><strong>AllySoft S.R.O.</strong></p>
+            <p class="ellipsis"><small>Junior Software Engineer</small></p>
+
+          </button>
+          <button class="nav-link  active" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+            type="button" role="tab" aria-controls="nav-profile" aria-selected="true">
+            <p class="mb-0 h6 ellipsis"><strong>NESS Kosice S.R.O.</strong></p>
+            <p class="ellipsis"><small>Software Engineer</small></p>
+
+          </button>
         </div>
-        <div class="col-lg-5 py-2">
-          <div class="card">
-            <div class="card-header d-flex justify-content-between">
-              <div class="ms-2 c-details">
-                <h6 class="mb-0">NESS Kosice S.R.O.</h6>
-              </div>
-            </div>
-            <div class="card-body">
-              <blockquote class="blockquote mb-0">
-                <h6 class="heading">Software Engineer</h6>
-              </blockquote>
-              <div class="my-2">
-                <p>In period from: 09.2021 - ...</p>
-              </div>
-              <footer class="blockquote-footer">
-                Creating features on the platform, developing microservices,
-                support of the system, etc...
-              </footer>
-              <div class="workInfo d-none">
-                <p>
-                  Creating features on the ThingsBoard platform using Java, JS.
-                  Also, developing and updating microservices (.NET6) built
-                  on AWS Cloud, used services like Lambda, ECS, CloudWatch
-                  logs etc...
-                </p>
-                <p>Technologies i use:</p>
-                <div class="my-2">
-                  <img class="techLogo" src="icons/thingsboard-logo.png" alt="tb" />
-                  <img class="techLogo" src="icons/java-logo.png" alt="java" />
-                  <img class="techLogo" src="icons/dotnet-logo.png" alt="dotnet" />
-                  <img class="techLogo" src="icons/bash-logo.png" alt="bash" />
-                  <img class="techLogo" src="icons/aws-logo.png" alt="amazon" />
-                  <img class="techLogo" src="icons/html-logo.png" alt="html" />
-                  <img class="techLogo" src="icons/git-logo.png" alt="Ggit" />
-                </div>
-              </div>
-              <button class="btn w-100 openInfo" button-state="open">
-                <i class="bi bi-chevron-compact-down"></i>
-              </button>
-            </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          <div class="my-2">
+            <p><b>In period of 01.2020 - 08.2021</b></p>
           </div>
+          <ul>
+            <li>Creating and updating the functionality of Android applications running on the Cordova framework
+            </li>
+            <li>Integration of external modules for communication with various hardware components (NFC, Camera,
+              Fingerprint Scanner, etc.)</li>
+            <li>Working on the frontend of internal applications (HTML, CSS, JS, JQuery)</li>
+            <li>Creating user manuals.</li>
+          </ul>
+          <p>Bring simple multitasking to company android application. Was involved in developing
+            additional features and deploying complex system for STIHL warehouse in Kosice.</p>
+
+        </div>
+        <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <div class="my-2">
+            <p><b>In period of 09.2021 - 05.2025</b></p>
+          </div>
+          <ul>
+            <li>Feature development and maintenance of a product built on the ThingsBoard platform (Java,
+              JavaScript, occasionally HTML and CSS)</li>
+            <li>Development and improvement of microservices (.NET6) running on AWS Cloud (Lambda, ECS), managing
+              logs (CW Logs, Alerts), integration
+              JIRA services via API, etc..</li>
+            <li>Production deployments and integration of third-party applications and services</li>
+            <li>DevOps-related tasks using Bash scripting and AWS CF, and others</li>
+            <li>Presenting the product and new features to client companies and stackholders, as well as
+              presentations at internal company events.</li>
+            <li>Creating clear and structured documentation for both end users and technical teams to support the
+              development process</li>
+            <li>Technical support</li>
+            <li>Keep code clear, readable, tested, with comments fulfilled</li>
+          </ul>
+          <p>While working here I developed, if not the most, but a decent amount of features/bug fixes for VIX
+            Australia
+            and their clients. Several times I myself fixed problems with important data calculations directly in the
+            production environment. Several times I received thanks for the fast and high-quality work completed by
+            administrators and supervisors. And many other things related to the infrastructure.</p>
         </div>
       </div>
     </div>
-    <div class="page px-5 more py-3">
-      <h3>Key Skills</h3>
-      <div class="px-5 more py-3">
-        <p>I am a proactive and adaptable individual who approaches work without stress, prioritizes completing assignments efficiently, and enthusiastically use opportunities to learn new technologies, even if it requires extra time  from my side.</p>
+    <div class="page">
+      <h3>Skills</h3>
+      <div>
+        <p>Most of the technical skills mentioned above have been obtained in my previous experiences based on my work
+          history, where I used such skills in a practical and real-world setting, in addition to a workteam
+          environment. On another note, I have built and further improved my skills not only in a work-based context and
+          experience but also through my own hobbies, projects and "side hustles", especially in relation to WordPress,
+          React, TypeScript, among other programming and development tools and technologies.</p>
+        <div class="skills">
+          <div class="bubbleContainer pt-3">
+            <h5 class="p-0 m-0 w-100">Technical</h5>
 
-        <h5 class="p-0 m-0">Technical Skills</h1>
-        <ul>
-          <li><b>Programming Languages:</b> JavaScript (HTML and CSS included), .Net, Java, Bash, PHP, SQL</li>
-          <li><b>Frameworks and Libraries:</b> ThingsBoard, React, JQuery, Bootstrap, Cordova, NETTE, Express</li>
-          <li><b>Tools and Technologies:</b> Git, Amazon Web Services, Jira Service Management</li>
-        </ul>
-        <h5 class="p-0 m-0">Soft Skills</h1>
-        <ul>
-          <li>Writing and updating documentation and also keeping tasks always updated so that people around know about the state of the tasks and the work I have done</li>
-          <li>Communication with members of team and other people related to project to resolve problems and clarify expectations and goals to complete the work successfully</li>
-          <li><b>Languages:</b> Slovak(C1), English(B2), Ukrainian(C2)</li>
-        </ul>
+            <div>HTML and CSS</div>
+            <div>SCSS/SASS</div>
+            <div>OpenAPI/Swagger</div>
+            <div>.Net Web API</div>
+            <div>Java</div>
+            <div>Bash</div>
+            <div>React Native</div>
+            <div>SQL</div>
+            <div>ThingsBoard</div>
+            <div>React</div>
+            <div>React Native</div>
+            <div>JQuery</div>
+            <div>Bootstrap</div>
+            <div>Cordova</div>
+            <div>NETTE</div>
+            <div>Express</div>
+            <div>Git</div>
+            <div>JavaScript</div>
+            <div>TypeScript</div>
+            <div>Entity Framework</div>
+            <div>Amazon Web Services</div>
+            <div>Jira Service Management</div>
+            <div>Jira API</div>
+            <div>Low Code</div>
+            <div>JSON</div>
+            <div>XML</div>
+          </div>
+          <div class="bubbleContainer  pt-3">
+            <h5 class="p-0 m-0  w-100">Soft</h5>
+            <div>Writing and updating documentation</div>
+            <div>Keeping tasks always updated</div>
+            <div>Communication </div>
+            <div>SCRUM experience</div>
+            <div>Responsibility</div>
+            <div>Time managment</div>
+            <div>Resistance to stress </div>
+            <div>Presentation to customers</div>
+            <div>Custommer support</div>
+            <div>Keeping code clean and commented</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <b>Languages:</b> Slovak(C1), English(B2), Ukrainian(C2)
+        </div>
+
       </div>
 
     </div>
-    <div class="page px-5 more py-3">
-      <h3>My Certificates</h3>
-      <div class="row">
-        <!--ADD CLASSES HERE d-flex align-items-stretch-->
-        <div class="col-lg-4 mb-3 d-flex flex-column align-items-stretch">
-          <div class="mx-auto align-items-center logo-container">
-            <img src="icons/cisco_ccna.png" class="logo" alt="cisco" />
+    <div class="page cert">
+
+      <h3>Education and Certificates</h3>
+      <div class="flexContainer pt-3">
+        <div class="d-flex flex-column ">
+          <div class="logo-container d-flex align-items-center">
+            <img src="icons/tuke-logo.png" class="logo mx-auto" alt="cisco" />
           </div>
           <div class="w-100 text-center">
-            <p>CCNA 2 (2019)</p>
+            <p><small>Bachelor Degree in Informatics (2020)</small></p>
+          </div>
+        </div>
+        <div class="d-flex flex-column ">
+          <div class="logo-container d-flex align-items-center">
+            <img src="icons/cisco_ccna.png" class="logo mx-auto" alt="cisco" />
+          </div>
+          <div class="w-100 text-center">
+            <p><small>CCNA 2 (2019)</small></p>
           </div>
         </div>
 
-        <div class="col-lg-4 mb-3 d-flex flex-column align-items-stretch">
-          <div class=" d-flex align-items-center mx-auto logo-container">
-            <img src="icons/aws-certified-cloud-practitioner.png" class="logo" alt="aws" />
+        <div class="d-flex flex-column">
+          <div class="logo-container d-flex align-items-center">
+            <img src="icons/aws-certified-cloud-practitioner.png" class="logo mx-auto" alt="aws" />
           </div>
           <div class="w-100 text-center">
-            <p>AWS Cloud Practitioner (2023)</p>
+            <p><small>AWS Cloud Practitioner (2023)</small></p>
           </div>
         </div>
 
-        <div class="col-lg-4 mb-3 d-flex flex-column align-items-stretch">
-          <div class="mx-auto logo-container d-flex align-items-center">
+        <div class="d-flex flex-column">
+          <div class="logo-container d-flex align-items-center">
             <img src="icons/noble-prog-logo.png" class="logo mx-auto" alt="csharp unit testing" />
           </div>
           <div class="w-100 text-center">
-            <p>Unit Testing C# (2023)</p>
+            <p><small>Unit Testing (2023)</small></p>
           </div>
         </div>
 
-        <div class="col-lg-4 mb-3 d-flex flex-column align-items-stretch">
-          <div class="mx-auto logo-container d-flex align-items-center">
-            <img src="icons/ictpro-logotype.png" class="logo" alt="typescript advanced" />
+        <div class="d-flex flex-column">
+          <div class="logo-container d-flex align-items-center">
+            <img src="icons/ictpro-logotype.png" class="logo mx-auto" alt="typescript advanced" />
           </div>
           <div class="w-100 text-center">
-            <p>TypeScript Advanced (2023)</p>
+            <p><small>TypeScript Advanced (2023)</small></p>
           </div>
         </div>
       </div>
     </div>
-    <div class="page px-5 more py-3 border-bottom">
-      <h3 class="py-3">Projects i was part of</h3>
+    <div class="page">
+      <h3>Hobbies</h3>
+      <div>
+        <p class="my-1">I enjoy staying physically active through sports, such as basketball or running. </p>
+        <p class="my-1">I also spend my free time maintaining my old Swedish car :D </p>
+        <p class="my-1">As hobby I can also define working on and improving my own projects to gain my skills and it is
+          kind of enjoy for me.</p>
+      </div>
+    </div>
+    <div class="page border-bottom">
+      <h3>My projects</h3>
       <a href="https://servicehub.sk/" class="text-decoration-none py-5">
-        <div class="col-lg-4 mb-3 d-flex flex-column align-items-stretch">
+        <div class="col-lg-2 mb-3 d-flex flex-column align-items-stretch">
           <div class="mx-auto">
             <img src="icons/service-hub.png" class="mx-auto logo" alt="service-hub" />
           </div>
@@ -261,9 +249,11 @@
         </div>
       </a>
     </div>
-    <div class="px-5 more py-3">
+    <div class="page">
       <h3>Contact Me via:</h3>
-      <div class="d-flex flex-row">
+      <p class="my-1">Please forget all you read above and contact me so I can introduce myself directly :)</p>
+
+      <div class="d-flex">
         <div class="mb-3 ms-1">
           <a href="https://www.linkedin.com/in/ernest-kalynych-2b7102186/" class="text-decoration-none"><i
               class="bi bi-linkedin fa-lg contact"></i></a>
@@ -276,13 +266,13 @@
           <a href="tel:+421904565826" class="text-decoration-none"><i class="bi bi-phone-fill fa-lg contact"></i></a>
         </div>
       </div>
-      <a href="Ernest-Kalynych-CV.pdf" download="ekalynych-cv">
+      <a href="ernest_kalynych_cv.pdf" download="ekalynych-cv">
         <button type="button" class="text-decoration-none btn btn-link p-0 m-0">
-          <i class="bi bi-file-earmark-person cv"></i><small class="cv"> Download Profesia.sk generated CV</small>
+          <i class="bi bi-file-earmark-person cv"></i><small class="cv"> Download CV in PDF format</small>
         </button>
       </a>
-      <div class="b-0 m-0 w-100">
-        <small class="float-end copyright"> © This page designed and developed by me :D</small>
+      <div class="w-100 py-3">
+        <small class="float-end copyright"> © There is no copyright :D</small>
       </div>
     </div>
   </div>
